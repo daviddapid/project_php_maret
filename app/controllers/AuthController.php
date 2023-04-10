@@ -19,6 +19,11 @@ class AuthController extends Controller
             return Route::redirect('/login');
         }
     }
+    public static function logout()
+    {
+        Auth::logout();
+        return Route::redirect('/login');
+    }
 
     public static function register()
     {

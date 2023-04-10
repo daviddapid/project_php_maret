@@ -12,11 +12,13 @@ class Routes
             '/detail' => [HomeController::class, 'detail'],
             '/home/coba' => [CobaController::class, 'index'],
             '/login' => [AuthController::class, 'login'],
+            '/logout' => [AuthController::class, 'logout'],
             '/register' => [AuthController::class, 'register'],
             '/admin' => [AdminController::class, 'index']
         ],
         'post' => [
             '/login' => [AuthController::class, 'loginAction'],
+
             '/register' => [AuthController::class, 'registerAction'],
             '/home/post' => [CobaController::class, 'store']
         ]

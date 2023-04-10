@@ -3,16 +3,10 @@ require_once 'Model.php';
 
 class User extends Model
 {
+    public $id;
     public $name;
     public $username;
     public $password;
-
-    // public function __construct($name, $username, )
-    // {
-    //     $this->name = $name;
-    //     $this->username = $username
-    //     $
-    // }
 
     public static function where($column, $value, $operator_condition)
     {
@@ -61,5 +55,16 @@ class User extends Model
             $conn->close();
             return $th->getMessage();
         }
+    }
+
+    // RELATION METHOD
+    public function posts()
+    {
+        $conn = parent::startConnection();
+        $sql = "SELECT * FROM posts WHERE user_id = $this->id";
+
+        $result = $conn->query($sql)->fetch_all(MYSQLI_ASSOC);
+        $conn->close();
+        return $result;
     }
 }

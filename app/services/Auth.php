@@ -2,27 +2,30 @@
 
 class Auth extends User
 {
-    private static ?User $_user = null;
 
-    private static function setUser($name, $username, $password)
+    private static function setUser($id, $name, $username, $password)
     {
-        $user = new User();
-        $user->name = $name;
-        $user->username = $username;
-        $user->password = $password;
-
-        self::$_user = $user;
+        $user = [
+            "id" => $id,
+            "name" => $name,
+            "username" => $username,
+            "password" => $password,
+        ];
+        $_SESSION['user'] = $user;
     }
-    public static function check()
+    public static function is_login()
     {
-        return var_dump(self::$_user);
-        if (self::$_user == null) {
-            return Route::redirect('/login');
-        }
+        return isset($_SESSION['user']);
     }
     public static function user()
     {
-        return self::$_user;
+        $_user = $_SESSION['user'];
+        $user = new User();
+        $user->id = $_user['id'];
+        $user->name = $_user['name'];
+        $user->username = $_user['username'];
+        $user->password = $_user['password'];
+        return $user;
     }
     public static function login($username, $password): bool
     {
@@ -34,8 +37,12 @@ class Auth extends User
             return false;
         }
 
-        self::setUser($user['name'], $user['username'], $user['password']);
+        self::setUser($user['id'], $user['name'], $user['username'], $user['password']);
 
         return true;
+    }
+    public static function logout()
+    {
+        $_SESSION['user'] = null;
     }
 }

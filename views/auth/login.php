@@ -10,6 +10,12 @@
 </head>
 
 <body style="background: linear-gradient(330deg, #000000, #2c2c2c)">
+    <a style="position: absolute; top: 19px;left: 19px; color: white; text-decoration: none;" href="http://localhost/tugas%20smk/project_php_maret/public/">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16" style="vertical-align: middle; margin-right: 5px;">
+            <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z" />
+        </svg>
+        Kembali Ke Beranda
+    </a>
     <div class="container" style="display: flex; align-items: center; height: 100%;">
         <div class="card" style="max-width: 350px; margin-inline: auto;">
             <h1 style="text-align: center; margin-bottom: 50px;">Login User</h1>
