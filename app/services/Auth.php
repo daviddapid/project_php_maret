@@ -19,6 +19,7 @@ class Auth extends User
     }
     public static function user()
     {
+        // var_dump($_SESSION['user']);
         $_user = $_SESSION['user'];
         $user = new User();
         $user->id = $_user['id'];

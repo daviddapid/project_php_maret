@@ -5,6 +5,8 @@ require_once '../routes/Route.php';
 
 session_start();
 
+
+
 switch ($_SERVER['REQUEST_METHOD']) {
     case 'GET':
         Route::Get($_REQUEST['url']);

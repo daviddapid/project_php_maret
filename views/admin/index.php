@@ -51,9 +51,10 @@
             padding: 12px;
         }
 
-        /* .table th {
-            font-weight: bold;
-        } */
+        a {
+            text-decoration: none;
+            color: white;
+        }
     </style>
 </head>
 
@@ -61,14 +62,16 @@
     <aside class="sidebar">
         <h1 style="text-align: center; margin-top: 30px;margin-bottom: 50px;">Dashboard</h1>
         <ul class="sidebar-menu">
-            <li class="sidebar-item">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-journal-text sidebar-icon" viewBox="0 0 16 16">
-                    <path d="M5 10.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5zm0-2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm0-2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm0-2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5z" />
-                    <path d="M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2z" />
-                    <path d="M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1z" />
-                </svg>
-                My Blogs
-            </li>
+            <a href="<?= Route::to('/admin') ?>">
+                <li class="sidebar-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-journal-text sidebar-icon" viewBox="0 0 16 16">
+                        <path d="M5 10.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5zm0-2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm0-2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm0-2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5z" />
+                        <path d="M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2z" />
+                        <path d="M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1z" />
+                    </svg>
+                    My Blogs
+                </li>
+            </a>
             <li class="sidebar-item">
                 <a href="logout" style="text-decoration: none;color: white;">
 
@@ -86,14 +89,16 @@
         <div class="card shadow-brutal">
             <div class="card-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 19px;">
                 <h1>Daftar Post Anda</h1>
-                <button class="btn" style="background-color: black; color: white; font-weight: bold;">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-plus-lg" viewBox="0 0 16 16" style="vertical-align: text-bottom;">
-                        <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z" />
-                    </svg>
-                    <span>Tambah</span>
-                </button>
+                <a href="<?= Route::to('/admin/post/create') ?>">
+                    <button class="btn" style="background-color: black; color: white; font-weight: bold;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-plus-lg" viewBox="0 0 16 16" style="vertical-align: text-bottom;">
+                            <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z" />
+                        </svg>
+                        <span>Tambah</span>
+                    </button>
+                </a>
             </div>
-            <table class="table shadow-brutal">
+            <table class="table shadow-brutal w-100">
                 <thead>
                     <tr>
                         <th>#</th>
@@ -104,22 +109,60 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Judul</td>
-                        <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor iusto exercitationem delectus soluta, facere optio similique maxime, rem nulla maiores placeat voluptas, dolore veniam odio aspernatur laudantium aliquid illum culpa!</td>
-                        <td>
-                            <img src="https://images.unsplash.com/photo-1454372182658-c712e4c5a1db?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" alt="" style="width: 100px;height: 50px;">
-                        </td>
-                        <td style="white-space: nowrap;">
-                            <button class="btn">Edit</button>
-                            <button class="btn">Delete</button>
-                        </td>
-                    </tr>
+                    <?php foreach ($data['posts'] as $index => $post) : ?>
+                        <tr>
+                            <td><?= $index + 1 ?></td>
+                            <td><?= $post['title'] ?></td>
+                            <td><?= $post['content'] ?></td>
+                            <td style="text-align: center; width: 9px; white-space: nowrap;">
+                                <img src="<?= Storage::get($post['image']) ?>" alt="" style="width: 100px;height: 50px;">
+                            </td>
+                            <td style="white-space: nowrap; width: 9px;">
+                                <a href="<?= Route::to('/admin/post/edit?post_id=' . $post['id']) ?>">
+                                    <button class="btn btn-blue">Edit</button>
+                                </a>
+                                <button class="btn btn-red" onclick="showModal(<?= $post['id'] ?>)" type="button">Delete</button>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
                 </tbody>
             </table>
         </div>
     </div>
+    <div class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Hapus Data</h3>
+                <svg onclick="closeModal()" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
+                    <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
+                </svg>
+            </div>
+            <div class="modal-body">
+                <form action="<?= Route::to('/admin/post/delete') ?>" method="post" id="form-delete">
+                    <input type="hidden" id="id-delete" name="post_id">
+                    Apa Anda Yakin Untuk Menghapus Data Ini ?
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn " style="outline: 1px solid grey; background-color: transparent;">Batal</button>
+                <button class="btn btn-red" form="form-delete" type="submit">Hapus</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        function showModal(post_id) {
+            const modal = document.querySelector('.modal');
+            const inputId = document.querySelector('#id-delete');
+
+            modal.classList.add('show');
+            inputId.value = post_id;
+        }
+
+        function closeModal() {
+            const modal = document.querySelector('.modal');
+            modal.classList.remove('show')
+        }
+    </script>
 </body>
 
 </html>

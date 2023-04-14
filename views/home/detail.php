@@ -61,7 +61,8 @@ define('HOME', 'http://localhost/tugas%20smk/project_php_maret/public/');
         </a>
 
         <div class="card shadow-brutal">
-            <h1 style="margin-bottom: 15px;"><?= $data['post']['title'] ?></h1>
+            <img src="<?= Storage::get($data['post']['image']) ?>" alt="" class="shadow-brutal" style="width: 100%;height: 298px; object-fit: cover;">
+            <h1 style="margin-bottom: 19px; margin-top: 10px;"><?= $data['post']['title'] ?></h1>
 
             <p><?= $data['post']['content'] ?></p>
         </div>

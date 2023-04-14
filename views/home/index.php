@@ -68,7 +68,7 @@
                 <?php foreach ($data['posts'] as $index => $post) : ?>
                     <div class="card shadow-brutal">
                         <h1><?= $post['title'] ?></h1>
-                        <p><?= $post['content'] ?></p>
+                        <p><?= substr($post['content'], 0, 100) . '...' ?></p>
 
                         <div class="blog-footer w-100" style="display: flex; justify-content: end; margin-top: 25px;">
                             <a href="detail?postId=<?= $post['id'] ?>" style="color: black; font-weight: bold;">

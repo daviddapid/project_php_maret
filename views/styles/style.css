@@ -26,6 +26,12 @@ body {
     box-shadow: -3px 5px 0px black;
     padding: 13px;
 }
+.textarea-control {
+    box-shadow: -3px 5px 0px black;
+    padding: 13px;
+    border-radius: var(--sml-radius);
+    border: 2px solid black;
+}
 .form-label {
     display: block;
     margin-bottom: 5px;
@@ -35,6 +41,15 @@ body {
     border: 0;
     padding: 10px 19px;
     border-radius: var(--sml-radius);
+    cursor: pointer;
+}
+.btn-blue {
+    background-color: #008eff;
+    color: white;
+}
+.btn-red {
+    background-color: red;
+    color: white;
 }
 
 .btn-rounded {
@@ -69,4 +84,60 @@ body {
 
 .w-100 {
     width: 100%;
+}
+a {
+    cursor: pointer;
+}
+
+/* modal */
+.modal {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    z-index: 99;
+    top: 0;
+    left: 0;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    display: none;
+}
+.modal.show {
+    display: flex;
+    animation: modalSshow 2s linear;
+    opacity: 1;
+    transition: 1s linear;
+    /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+}
+@keyframes modalShow {
+    from {
+        opacity: 0;
+        backdrop-filter: blur(0px);
+    }
+    to {
+        opacity: 1;
+        backdrop-filter: blur(2px);
+    }
+}
+.modal-content {
+    background-color: white;
+    width: 390px;
+    box-shadow: 0 5px 19px #80808082;
+    border-radius: 19px;
+}
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+.modal-body {
+    padding: 0 20px;
+}
+.modal-footer {
+    padding: 20px;
+    padding-top: 30px;
+    display: flex;
+    justify-content: end;
+    gap: 5px;
 }

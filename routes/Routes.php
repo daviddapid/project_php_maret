@@ -14,13 +14,18 @@ class Routes
             '/login' => [AuthController::class, 'login'],
             '/logout' => [AuthController::class, 'logout'],
             '/register' => [AuthController::class, 'register'],
-            '/admin' => [AdminController::class, 'index']
+            '/admin' => [AdminController::class, 'index'],
+            '/admin/post/create' => [AdminController::class, 'create'],
+            '/admin/post/edit' => [AdminController::class, 'edit'],
         ],
         'post' => [
             '/login' => [AuthController::class, 'loginAction'],
 
             '/register' => [AuthController::class, 'registerAction'],
-            '/home/post' => [CobaController::class, 'store']
+            '/home/post' => [CobaController::class, 'store'],
+            '/admin/post/store' => [AdminController::class, 'store'],
+            '/admin/post/update' => [AdminController::class, 'update'],
+            '/admin/post/delete' => [AdminController::class, 'delete']
         ]
     ];
 }
