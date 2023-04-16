@@ -16,6 +16,7 @@ class AuthController extends Controller
             var_dump(Auth::user());
             Route::redirect('/admin');
         } else {
+            $_SESSION['failed-login'] = true;
             return Route::redirect('/login');
         }
     }
@@ -40,6 +41,7 @@ class AuthController extends Controller
         if ($result) {
             Route::redirect('/admin');
         } else {
+            $_SESSION['failed-register'] = $user->username;
             Route::redirect('/register');
         }
     }

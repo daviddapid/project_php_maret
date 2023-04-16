@@ -32,6 +32,42 @@
 
         </div>
     </div>
+
+    <div class="modal" id="modal-failed">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Hapus Data</h3>
+                <svg onclick="closeModal()" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
+                    <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
+                </svg>
+            </div>
+            <div class="modal-body" style="text-align: center;">
+                <svg style="color: red; width: 90; height: 90;" xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-exclamation-circle" viewBox="0 0 16 16">
+                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                    <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z" />
+                </svg>
+                <h1 style="margin-bottom: 8px; margin-top: 15px;">Gagal Register</h1>
+                <p>Username <b>"<?= $_SESSION['failed-register'] ?>"</b> Telah Digunakan</p>
+            </div>
+            <div class="modal-footer">
+                <!-- <button class="btn " style="outline: 1px solid grey; background-color: transparent;">Batal</button> -->
+                <button class="btn btn-red w-100" form="form-delete" type="button" onclick="closeModal()" style="margin-inline: auto; border-radius: 90px;">Ok</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        function closeModal() {
+            const modal = document.querySelector('#modal-failed')
+            modal.classList.remove('show')
+        }
+    </script>
+    <?php if (isset($_SESSION['failed-register'])) : ?>
+        <script>
+            const modal = document.querySelector('#modal-failed')
+            modal.classList.add('show')
+        </script>
+        <?php unset($_SESSION['failed-register']); ?>
+    <?php endif; ?>
 </body>
 
 </html>

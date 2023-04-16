@@ -20,8 +20,8 @@ class AdminController extends Controller
         if (!Auth::is_login()) {
             return Route::redirect('/login');
         }
+
         parent::view('admin/create');
-        // parent::view('admin/index');
     }
     public static function store($request, $foto)
     {
@@ -38,6 +38,7 @@ class AdminController extends Controller
             $post->user_id = Auth::user()->id;
             $post->save();
 
+            $_SESSION['success'] = 'Sukses Menambah Data';
             Route::redirect('/admin/post/create');
         } catch (\Throwable $th) {
             Debug::dd($th->getMessage());
@@ -71,7 +72,7 @@ class AdminController extends Controller
             $post['title'] = $request['title'];
 
             Post::update($post);
-
+            $_SESSION['success'] = 'Sukses Memperbarui Data';
             Route::redirect('/admin/post/edit?post_id=' . $post['id']);
         } catch (\Throwable $th) {
             Debug::dd($th->getMessage());
@@ -84,6 +85,7 @@ class AdminController extends Controller
         Storage::delete($post['image']);
         Post::delete($post);
 
+        $_SESSION['success'] = 'Sukses Menghapus Data';
         Route::redirect('/admin');
     }
 }

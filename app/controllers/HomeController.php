@@ -16,7 +16,7 @@ class HomeController extends Controller
     {
 
         $data = [
-            'post' => Post::find($request['postId'])
+            'post' => Post::find($request['postId']),
         ];
         parent::view('home/detail', $data);
     }

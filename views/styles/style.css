@@ -11,6 +11,7 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     height: 100vh;
     width: 100vw;
+    overflow-x: hidden;
 }
 
 .container {
@@ -88,7 +89,24 @@ body {
 a {
     cursor: pointer;
 }
-
+/* toast */
+.toast {
+    position: absolute;
+    right: -900px;
+    top: 8px;
+    background-color: #38e54d;
+    width: 350px;
+    border-radius: var(--sml-radius);
+    padding: 13px 15px;
+    color: white;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    transition: 1s ease-in-out;
+}
+.toast.show {
+    right: 8px;
+}
 /* modal */
 .modal {
     position: fixed;
@@ -99,24 +117,18 @@ a {
     left: 0;
     justify-content: center;
     align-items: center;
-    opacity: 0;
     display: none;
 }
 .modal.show {
     display: flex;
-    animation: modalSshow 2s linear;
-    opacity: 1;
-    transition: 1s linear;
-    /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+    animation: modalShow 0.5s linear alternate forwards;
 }
 @keyframes modalShow {
     from {
-        opacity: 0;
         backdrop-filter: blur(0px);
     }
     to {
-        opacity: 1;
-        backdrop-filter: blur(2px);
+        backdrop-filter: blur(5px);
     }
 }
 .modal-content {
@@ -124,6 +136,19 @@ a {
     width: 390px;
     box-shadow: 0 5px 19px #80808082;
     border-radius: 19px;
+    transform: translateY(-90px) scale(0);
+    transition: 1s;
+    opacity: 0;
+}
+.modal.show .modal-content {
+    /* transform: translateY(0); */
+    animation: modal-content-show 0.5s ease-in-out forwards alternate;
+}
+@keyframes modal-content-show {
+    to {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
 }
 .modal-header {
     display: flex;

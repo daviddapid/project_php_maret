@@ -56,6 +56,15 @@ class User extends Model
             return $th->getMessage();
         }
     }
+    public static function find($user_id)
+    {
+        $conn = parent::startConnection();
+        $sql = "SELECT * FROM users WHERE id = '$user_id';";
+        $result =  $conn->query($sql)->fetch_assoc();
+        $conn->close();
+
+        return $result;
+    }
 
     // RELATION METHOD
     public function posts()
