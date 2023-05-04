@@ -39,8 +39,13 @@
         <h1>D'Blog</h1>
 
         <div class="action">
-            <h4 style="font-weight: lighter;"><a href="register" style="color: white;">SignUp</a></h4>
-            <h4><a href="login" style="color: white;">Login</a> </h4>
+            <?php if (Auth::is_login()) : ?>
+                <h4 style="font-weight: lighter;"><a href="<?= Route::to('/logout') ?>" style="color: white;">Logout</a></h4>
+                <h4><a href="<?= Route::to('/admin') ?>" style="color: white;">Dashboard</a> </h4>
+            <?php else : ?>
+                <h4 style="font-weight: lighter;"><a href="register" style="color: white;">SignUp</a></h4>
+                <h4><a href="<?= Route::to('/login') ?>" style="color: white;">Login</a> </h4>
+            <?php endif; ?>
         </div>
 
     </nav>
